@@ -1,6 +1,7 @@
 <?php
 
 class register extends connection{
+  
     public function registation($username,$email,$password_1,$password_2,$password){
         $dup = mysqli_query($this->conn,"SELECT * FROM users WHERE username='$username' OR email='$email' ");
         if(mysqli_num_rows($dup)>0)
@@ -26,7 +27,7 @@ class Login extends connection{
         
         if(mysqli_num_rows($result)>0){
 
-        if ($password==&row["password"]){
+        if ($password == $row["password"]){
             $this->id = $row["id"];
             return 1;
         }
