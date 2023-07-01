@@ -1,4 +1,4 @@
-<?php include './connection.php'; ?>
+<?php include 'connection.php'; ?>
 <?php session_start();?>
 <?php
 
@@ -16,6 +16,7 @@ $errors = array();
 if (isset($_POST['reg_user'])) {
   // receive all input values from the form
   $username = $_POST['username'];
+  $usertype = $_POST['usertype'];
   $email = $_POST['email'];
   $password_1 = $_POST['password_1'];
   $password_2 = $_POST['password_2'];
@@ -49,10 +50,12 @@ if (isset($_POST['reg_user'])) {
   if (count($errors) == 0) {
   	$password = ($password_1);//encrypt the password before saving in the database
 
-  	$query = "INSERT INTO users (username, email, password) 
-  			  VALUES('$username', '$email', '$password')";
+  	$query = "INSERT INTO users (username, email, password,role) 
+  			  VALUES('$username', '$email', '$password','$usertype')";
   	mysqli_query($conn, $query);
   	$_SESSION['username'] = $username;
+    $_SESSION['usertype'] = $usertype;
+
   	$_SESSION['success'] = "You are now logged in";
   	header('location:grade.php');
   }
@@ -62,7 +65,7 @@ if (isset($_POST['reg_user'])) {
 if (isset($_POST['login_user'])) {
   $username = $_POST['username'];
   $password = $_POST['password'];
-
+  $usertype = $_POST['usertype'];
   if (empty($username)) {
   	array_push($errors, "Username is required");
   }
@@ -72,10 +75,11 @@ if (isset($_POST['login_user'])) {
 
   if (count($errors) == 0) {
   	$password = ($password);
-  	$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+  	$query = "SELECT * FROM users WHERE username='$username'AND role ='$usertype' AND password='$password'";
   	$results = mysqli_query($conn, $query);
   	if (mysqli_num_rows($results) == 1) {
   	  $_SESSION['username'] = $username;
+      $_SESSION['usertype'] = $usertype;
   	  $_SESSION['success'] = "You are now logged in";
   	  header('location: grade.php');
   	}else {

@@ -30,7 +30,7 @@
           <li class="nav-item"><span class="badge badge rounded-pill bg-success"><h6> <?php echo $_SESSION['username'];?></h6></span></li>
           <li class="nav-item">
          
-            <a class="nav-link" href="/Php_tutorials\goldq\login.php" style="color: red;">logout</a>
+            <a class="nav-link" href="login.php" style="color: red;">logout</a>
           </li>
         </ul>
       </div>

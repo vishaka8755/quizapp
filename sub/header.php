@@ -1,4 +1,4 @@
-<?php include './connection.php'; ?>
+<?php include 'connection.php'; ?>
 <?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +31,7 @@
                     <div class="dropdown"> <button type="button" class="btn btn-info    dropdown-toggle" data-bs-toggle="dropdown">
                    StartQuiz  </button>    
                  <ul class="dropdown-menu">
-                 <li><a class="dropdown-item" href="/Php_tutorials\goldq\mainpage.php">grade1</a></li>
+                 <li><a class="dropdown-item" href="./mainpage.php">grade1</a></li>
                  
                 
                  <li><a class="dropdown-item" href="#">Grade 2</a></li>
@@ -42,23 +42,32 @@
 
 
           </li>
+          <?php if ($_SESSION['usertype']=='admin')
+          {
+            ?>
           <li class="nav-item">
             <div class="container mt-3">      
                     <div class="dropdown"> <button type="button" class="btn btn-info    dropdown-toggle" data-bs-toggle="dropdown">
                    AddnewQuestion  </button>    
                  <ul class="dropdown-menu">
-                 <li><a class="dropdown-item" href="/Php_tutorials\goldq\addQuestion.php">grade1</a></li>
+                 <li><a class="dropdown-item" href="./addQuestion.php">grade1</a></li>
                  
-                 <li><a class="dropdown-item" href="#">Grade 2</a></li>
-                 <li><a class="dropdown-item" href="#">Grade 3</a></li>
-                <li><a class="dropdown-item" href="#">Grade 4</a></li>
-                 <li><a class="dropdown-item" href="#">Grade 5</a></li>
+                 <li><a class="dropdown-item" href="addQuestion.php">Grade 2</a></li>
+                 <li><a class="dropdown-item" href="addQuestion.php">Grade 3</a></li>
+                <li><a class="dropdown-item" href="addQuestion.php">Grade 4</a></li>
+                 <li><a class="dropdown-item" href="addQuestion.php">Grade 5</a></li>
                 </ul>     </div>             </div>
           </li>
+
+
+          <?php
+          }
+          
+          ?>
           <li class="nav-item"><span class="badge badge rounded-pill bg-success"><h6> <?php echo $_SESSION['username'];?></h6></span></li>
           <li class="nav-item">
          
-            <a class="nav-link" href="/Php_tutorials\goldq\login.php" style="color: red;">logout</a>
+            <a class="nav-link" href="login.php" style="color: red;">logout</a>
           </li>
         </ul>
       </div>

@@ -9,39 +9,59 @@
   </div>
 <?php  endif ?>
 
-	
-  <form method="post" action="user.php">
-  
-  	<div class="form-label">
-  	  <label>Username</label>
-  	  <input type="text" class="form-control" name= "username" >
-  	</div>
-  	<div class="form-label">
-  	  <label>Email</label>
-  	  <input type="email" class="form-control" name="email" >
-  	</div>
-  	<div class="form-label">
-  	  <label>Password</label>
-  	  <input type="password" class="form-control" name="password_1">
-  	</div>
-  	<div class="form-label">
-  	  <label>Confirm password</label>
-  	  <input type="password" class="form-control" name="password_2">
-  	</div>
 
-      <div class="form-label">
-  	  <label>Upload imgage</label>
-  	<input type="file" id="img" name="img" accept="image/*">
-  	</div>
+<div class="card Basic card text-black " style="width:800px; padding :50px; ">
+     
+<form   method="post" action="user.php">
 
-  	<div class="form-label">
-  	  <button type="submit" class="btn btn-dark w-100" name="reg_user">Register</button>
-  	</div>
+<p>
+  		<h3>Sign up</h3>
+  	</p>
+	 
+		
+  		<label >User Type </label>
+		  
+	  <select  class="form-select mb-3" name="usertype" aria-label="Default select example">
+     <option selected value="user">User</option></select>
+          
+  	
+	 <div class="form-group form-group-lg">
+  	  <label >Username</label>
+  	  <div class = "col-xs-1">
+	  <input type="text"  class="form-control input-sm "name= "username" id="inputname" placeholder="input your user name">
+  	</div></div>
+
+
+  	<div class="form-group form-group-lg">
+  	  <label >Email</label>
+		<div class = "col-xs-1">
+  	  <input type="email" class="form-control input-sm " name="email" id="inputemail"placeholder="input your email address" >
+  	</div></div>
+	  
+	  
+
+
+  	<div class="form-group form-group-lg">
+  	  <label for ="inputpassword" class="control-label col-xs-1">Password</label>
+		<div class = "col-xs-1">
+  	  <input type="password" class="form-control input-sm " name="password_1" id="inputpassword" placeholder="input password">
+		</div></div>
+
+  	<div class="form-group form-group-lg">
+  	  <label for =id="inpupassword" class="control-label col-xs-1">Confirm password</label>
+		<div class = "col-xs-1">
+  	  <input type="password" class="form-control input-sm " name="password_2" id="inpupassword" placeholder="re enter password">
+  	</div></div></br></br></br>
+
+	  
+		
+  	  <button type="submit" class="btn btn-dark w-25" name="reg_user">Register</button>
+  	
 	  
   	<p>
   		Already a member? <a href="login.php">Sign in</a>
   	</p>
 	 
-  </form>
-</body>
-</html>
+  </form></div>
+
+  <?php include 'sub/footer.php'; ?>

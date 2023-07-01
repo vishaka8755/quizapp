@@ -23,10 +23,21 @@
   		<label>Username</label>
   		<input type="text" class="form-control" name="username" >
   	</div>
+	  <div class="form-label">
+  		<label>User Type </label>
+	  <select class="form-select" name="usertype" aria-label="Default select example">
+  <option selected value="user">User</option>
+   <option value="admin">Admin</option>
+  
+</select>
+
+
+  </div>
   	<div class="form-label">
   		<label>Password</label>
   		<input type="password" class="form-control" name="password">
   	</div>
+
   	<div class="form-label">
   		<button type="submit" class="btn btn-dark w-100" name="login_user">Login</button>
   	</div>

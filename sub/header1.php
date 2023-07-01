@@ -1,12 +1,14 @@
-<?php include './connection.php'; ?>
+<?php include 'connection.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
+  
   <title>QUIZZES</title>
 </head>
 <body>
@@ -31,21 +33,20 @@
                     
                  
           <li class="nav-item">
-            <a class="nav-link" href="/Php_tutorials\goldq\login.php">login</a>
+            <a class="nav-link" href="login.php">login</a>
           </li>
          
           
          
           <li class="nav-item">
-            <a class="nav-link" href="/Php_tutorials\goldq\user.php">signup</a>
+            <a class="nav-link" href="user.php">signup</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/Php_tutorials\goldq\login.php">logout</a>
+            <a class="nav-link" href="login.php">logout</a>
           </li>
         
       </div>
   </div>
 </nav>
-
 <main>
-  <div class="container d-flex flex-column align-items-center">
+<div class="container d-flex flex-column align-items-center">

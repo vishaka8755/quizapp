@@ -54,7 +54,7 @@ $number = (int)$_GET['n'];
         </div></br></br></br>
 
         
-        <input type = "submit" name= "submit" value="submit" class="btn btn-success"/>
+        <input type = "submit" name= "submit" value="next ->" class="btn btn-success"/>
         <input type = "hidden" name ="number" value=<?php echo $number; ?>"/>
    
 
