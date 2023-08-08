@@ -1,6 +1,5 @@
-<?php include 'sub/header.php';
-include_once('Questionclass.php');
-?>
+<?php include './sub/header.php'; ?>
+
 
 <?php 
 if(isset($_SESSION['score']))
@@ -12,32 +11,38 @@ if(isset($_SESSION['score']))
 
 if (!isset($_SESSION['username'])) {
       $_SESSION['msg'] = "You must log in first";
-      header('location: newuserlogin.php');
+      header('location: login.php');
 }
 
-//if (isset($_GET['logout'])) {
-  //    session_destroy();
-    //  unset($_SESSION['username']);
-      //header("location: login.php");
-//}
+if (isset($_GET['logout'])) {
+      session_destroy();
+      unset($_SESSION['username']);
+      header("location: login.php");
+}
 
-$question = new Question();
-$totalquestion = $question->getTotlquestion();   
-  
+//get the total number of Question
+
+      $sql = "SELECT * FROM questions";
+      $results = $conn->query($sql);
+
+      $total = $results->num_rows;   
 ?>
 
 
-<form method="post" action= "process.php" >     
+      <form >
+      
+
+
      <div class="container"> 
       <h1> ONLINE MCQ TEST - 1  </h1><br><br>
       </div>
       <div class="card Basic card text-black ">
       <div class="card-body  style="text-align:center" style="font-family:'Times New Roman', Times, serif"">
     
-       <li><strong> No of Question :</strong> <?php echo $totalquestion; ?></li> 
+       <li><strong> No of Question :</strong> <?php echo $total; ?></li> 
        <li>Each question carries 01 mark</li> 
        <li>There is no negative marking.<br></li>
-       <li><strong>Time is </strong><?php echo $totalquestion*.5 ?> Minutes</li>
+       <li><strong>Time is </strong><?php echo $total*.5 ?> Minutes</li>
        
    
       </div>

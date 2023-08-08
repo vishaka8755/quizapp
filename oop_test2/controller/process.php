@@ -4,8 +4,7 @@
 <?php session_start();?>
 <?php
 //check to see if score is set
-include_once('Questionclass.php');
-include_once('choiceclass.php');
+
 if(!isset($_SESSION['score']))
 {
     $_SESSION['score'] = 0;
@@ -14,16 +13,14 @@ if(!isset($_SESSION['score']))
 
 if($_POST)
 {
-    $number = $_POST['number'];
+   $number = $_POST['number'];
    $selected_choice = $_POST['choice'];
-   echo $selected_choice;
-   
    $next = $number+1; 
-   
+   include_once('./classfile/Questionclass.php');
     $question = new Question(); 
 
     $totalquestion = $question->getTotlquestion();
-   
+    include_once('./classfile/choiceclass.php');
     $choice = new Choice();
     
     $Row = $choice-> getcorrectchoice($number);
@@ -41,7 +38,7 @@ if($correct_choice ==  $selected_choice)
 }
 
 
-        if ($number> $totalquestion)
+        if ($number> $total)
         {
             header("location:paperend.php"); 
            

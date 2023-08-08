@@ -1,4 +1,4 @@
-<?php include 'sub/headerfinal.php'; ?>
+<?php include './sub/headerfinal.php'; ?>
 
 <div class="card Basic card text-black " style="width:1000px; ">
 

@@ -1,17 +1,26 @@
 
 
-<?php include 'sub/header.php'; 
-include_once('Questionclass.php');
-include_once('choiceclass.php');
+<?php include './sub/header.php'; ?>
 
 
+<?php 
+$_SESSION['score'] = 0;
+$number = (int)$_GET['n'];
 
-$number =  (int)$_GET['n'];
+  
 $question = new Question();
 $Row =  $question->setQuestionNumber($number);
- $choice = new Choice();
+    
+     
+$choice = new Choice();
+$Choice = $choice->getchoice($number);
+      
+
+
 $totalquestion = $question->getTotlquestion();    
- ?>
+
+    
+            ?>
 
 
 
@@ -21,18 +30,17 @@ $totalquestion = $question->getTotlquestion();
       <p> Question of <?php echo $Row['q_no'];?> of <?php echo $totalquestion;?> </p>
 
       <p> <?php echo $Row['q_no'];?>. <?php echo $Row['text']; ?> </p>
-       
-      <form method="POST" action ="process.php" >      
-            
-      <?php
-          
-       $choice->getchoicedetails($number);?> 
+      
       
         
+      
+      <form method="POST" action ="./controller/process.php" >      
+      
+      <?php  while ( $row = mysqli_fetch_assoc($Choice)):?> 
+        <p>&nbsp;<input class="form-check-input" name ="choice" type="radio" value= <?php echo $Row['id']; ?> > <?php echo $row['text']; ?> <p> 
         
+        <?php endwhile; ?>  
 
-       
-       
        
         </div></br></br></br>
 

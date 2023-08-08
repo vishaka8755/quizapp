@@ -1,5 +1,13 @@
-<?php include 'sub/header.php'; ?>
+<?php include './sub/header.php'; ?>
+<?php
+session_start();
 
+ 
+include_once('user1.php');
+ 
+$user = new User();
+ 
+?>
       <form >
       
 
@@ -51,8 +59,7 @@
           <div class="card-img-top">
            <h4 class="card-title">Grade - 6</h4>
            <p class="card-text">Some example text.</br></br></p>
-           <a href="mainpage.php" class="btn btn-primary">Start quiz</a> 
-             </div>
+           <a href="mainpage.php" class="btn btn-primary">Start quiz</a>  </div>
        </td>
       </tr>
       

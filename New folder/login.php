@@ -1,17 +1,10 @@
-
 <?php include('server.php') ?>
 <?php include './sub/header1.php'; ?>
 
-<?php  if (count($errors) > 0) : ?>
-  <div class="form-label">
-  	<?php foreach ($errors as $error) : ?>
-  	  <p><?php echo $error ?></p>
-  	<?php endforeach ?>
-  </div>
-<?php  endif ?>
 
 
-<form method="post" action="login.php">
+
+  <form method="post" action="login.php">
   
   <div class="row">
 

@@ -62,30 +62,43 @@ if (isset($_POST['reg_user'])) {
 }
 
 // LOGIN USER
-if (isset($_POST['login_user'])) {
-  $username = $_POST['username'];
-  $password = $_POST['password'];
-  $usertype = $_POST['usertype'];
-  if (empty($username)) {
-  	array_push($errors, "Username is required");
-  }
-  if (empty($password)) {
-  	array_push($errors, "Password is required");
-  }
+      if (isset($_POST['login_user'])) {
+            $username = $_POST['username'];
+             $password = $_POST['password'];
+            
+                          if (empty($username)) {
+  	                              array_push($errors, "Username is required");
+                                   }
+                            if (empty($password)) {
+  	                                    array_push($errors, "Password is required");
+                                  }
 
-  if (count($errors) == 0) {
-  	$password = ($password);
-  	$query = "SELECT * FROM users WHERE username='$username'AND role ='$usertype' AND password='$password'";
-  	$results = mysqli_query($conn, $query);
-  	if (mysqli_num_rows($results) == 1) {
-  	  $_SESSION['username'] = $username;
-      $_SESSION['usertype'] = $usertype;
-  	  $_SESSION['success'] = "You are now logged in";
-  	  header('location: grade.php');
-  	}else {
-  		array_push($errors, "Wrong username/password combination");
-  	}
-  }
+                              if (count($errors) == 0) {
+  	
+  	                            $query = "SELECT * FROM users WHERE username ='$username' AND password ='$password'";
+  	                            $results = $conn->query($query);
+                                $result = $results->fetch_assoc();
+                                if ($result) 
+                                  {
+                               
+                                    
+                                  $_SESSION['username'] = $result['username'];
+          
+
+                                  $_SESSION['usertype'] = $result['role'];
+                                
+                                  $_SESSION['success'] = "You are now logged in";
+                                  header('location: grade.php');
+                                } array_push($errors, "invalid login details");
+                              
+                              } 
+  	  
+  	
+  
+    
+                    
+  	
+  
 }
 
 ?>
